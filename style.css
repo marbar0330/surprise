@@ -1,0 +1,520 @@
+@font-face {
+    font-family: 'SourGummy';
+    src: url('SourGummy-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Creepster";
+    src: url('Creepster-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* First Screen: Just the Envelope */
+#intro-screen {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200vh;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Second Screen: Initially Hidden */
+#main-content {
+    padding-top: 60px;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #ffe4e1;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    transition: opacity 1s ease-in-out, visibility 0s linear 1s;
+}
+
+/* Show main content after transition */
+.show-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Envelope Wiggle Effect */
+.envelope {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+}
+
+@keyframes fidget {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-5px, 5px) rotate(-3deg); }
+    50% { transform: translate(5px, -5px) rotate(3deg); }
+    75% { transform: translate(-3px, 3px) rotate(-2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.envelope {
+    animation: fidget 1.5s infinite ease-in-out;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.top-text {
+    text-align: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.gallery-button {
+    position: absolute;
+    right: 20px; /* Pushes it to the far right */
+    top: 50%;
+    transform: translateY(-75%); /* Center vertically */
+    font-size: 1em;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    background: #ff69b4;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+
+.gallery-button:hover {
+    background: #ff1493;
+}
+
+#noJBtn {
+    transition: left 0.3s ease, top 0.3s ease; /* Smooth movement */
+}
+
+body {
+    font-family: 'SourGummy';
+    text-align: center;
+    background-color: #ffe4e1;
+    color: #d63384;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.joking-box {
+    background: black;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 120px;
+}
+
+h1 {
+    font-family: 'SourGummy';
+    font-size: 2em;
+}
+
+h2 {
+    font-family: 'Creepster';
+    font-size: 2em;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-family: 'SourGummy';
+}
+
+.joking-button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Creepster';
+    background-color: #222;
+    color: white;
+}
+
+.joking-button:hover {
+    background-color: #444;
+}
+
+#yesBtn {
+    background: #ff69b4;
+    color: white;
+}
+
+#noBtn {
+    background: #ff4d4d;
+    color: white;
+    position: relative;
+}
+
+#yesBtn:hover {
+    background: #ff1493;
+}
+
+#noBtn:hover {
+    background: #d63333;
+}
+
+.polaroid-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.polaroid {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 150px;
+    transform: rotate(-5deg);
+    transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(5deg);
+}
+
+.polaroid:hover {
+    transform: scale(1.1);
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto; /* Adjust spacing */
+    flex-shrink: 0;
+}
+
+.photo-overlay {
+    position: relative;
+    background: white; /* White rectangular background */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 180px; /* Set width of the rectangle */
+    max-width: 100%;
+}
+
+#photo-placeholder{
+    width: 220px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 40px auto; */
+    border-radius: 10px;
+    margin-top: 180px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#photo-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.photo-text {
+    font-size: 14px;
+    color: #d63384;
+    font-weight: bold;
+}
+
+.reasons-title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #d63384;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.reasons-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Always 5 columns */
+    grid-template-rows: repeat(2, auto); /* Force max 2 rows */
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 900px; /* Controls the overall width */
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.reason-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d63384;
+    height: 120px; /* Keeps all boxes the same height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 150px;
+}
+
+#noScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 0s linear 1s;
+}
+
+#growingDanielLarson {
+    width: 25px;
+    height: auto;
+    opacity: 0;
+    /* transform: scale(0.2); */
+    transition: transform 3s ease-in-out, opacity 1s ease-in-out;
+}
+
+.show-no-screen {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.grow-image {
+    opacity: 1 !important;
+    transform: scale(12);
+    /* transition: transform 3s ease-in-out, opacity 1s ease-in-out 0.2s; */
+}
+
+.pink-screen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffb6c1;
+    text-align: center;
+}
+
+.pink-screen-text {
+    font-size: 3em;
+    color: #d63384;
+    font-family: 'SourGummy', sans-serif;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0 !important;
+}
+
+/* Popup background (hidden by default) */
+.popup {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup content box */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff69b4;
+}
+
+.close-btn:hover {
+    color: #ff1493;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Make title look clickable */
+.reasons-title {
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.reasons-title:hover {
+    color: #ff69b4;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 3s linear infinite;
+}
+
+#record {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    width: 120px;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.reasons-container {
+    position: relative; /* Makes sure Smiskis are positioned relative to this */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Keeps the 5-column layout */
+    grid-template-rows: repeat(2, auto);
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* Smiski Figures Positioned on Top of the Reason Boxes */
+.smiski-container {
+    position: absolute;
+    top: -100px; /* Moves Smiskis up to sit on the boxes */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Spaces them evenly */
+    pointer-events: none; /* Ensures they don’t interfere with clicks */
+}
+
+
+/* Individual Smiski Figures */
+.smiski-container img {
+    width: 120px; /* Uniform sizing */
+    height: auto;
+    position: relative;
+}
+
+
+/* Adjust Smiski positioning for better alignment */
+#smiskiBalloon {
+    width: 200px;
+    margin-left: -10px;
+    top: -78px;
+    transform: translateX(46vw);
+}
+
+
+#smiskiHeart {
+    /* margin-top: 10px; */
+    height: 150px;
+    top: -28px;
+    transform: translateX(-13.5vw);
+}
+
+
+#smiskiRose {
+    position: absolute;
+    left: 48%; /* Move closer to the center */
+    top: 15px; /* Fine-tune vertical positioning */
+    transform: translateX(-26vw); /* Center and slightly tilt */
+    width: 140px; /* Make slightly larger to match */
+}
+
+
+#smiskiCombo {
+    margin-top: -10px;
+    height: 150px;
+    top: -18px;
+    transform: translateX(-12vw);
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <img id="record" src="heartRecord-removebg-preview.png" alt="Spinning Record"> -->
+    <audio id="backgroundMusic" src="17 Corazón de melon.mp3"></audio>
+    <audio id="sadMusic" src="06 i hate u, i love u (feat. Olivia.mp3"></audio>
+
+    <!--Envelope Screen-->
+    <div id="intro-screen">
+        <div id="envelope-screen">
+            <div class="envelope-container">
+                <img src="envelope.png" alt="Open Me!" class="envelope" id="openEnvelope">
+                <p class="open-text">Open Me! 💌</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+
+        <img id="record" src="heartRecord-removebg-preview.png" alt="Spinning Record">
+        <div class="top-bar">
+            <div class="top-text">A love letter to you ❤️</div>
+            <button id="galleryBtn" class="gallery-button"> Gallery</button>
+        </div>
+        <div id="photo-placeholder">
+            <div class="photo-overlay">
+                <p class="photo-text">To: Mi Amor</p>
+                <img src="gabrielle.jpg" alt="Your photo">
+                <p class="photo-text"> From: Me</p>
+            </div>
+        </div>
+
+        <h1 class="reasons-title" onclick="showPopup()">10 Things I Love About You</h1>
+        <div id="popupModal" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <p> Alas, I can go on and on about what I love about you, but I limited myself to these 10. I love, love, love you. -M </p>
+            </div>
+        </div>
+
+        <div class="reasons-container">
+
+            <!-- <div class="smiski-wrapper"> -->
+                <div class="smiski-container">
+                    <img id="smiskiBalloon" src="smiski3.png" alt="smiski3">
+                    <img id="smiskiHeart" src="smiski1.png" alt="smiski1">
+                    <img id="smiskiRose" src="smiski2.png" alt="smiski2">
+                    <img id="smiskiCombo" src="smiski4.png" alt="smiski4">
+                </div>
+            <!-- </div> -->
+
+            <div class="reason-box">Your laugh. I love to make you laugh</div>
+            <div class="reason-box">How talented you are</div>
+            <div class="reason-box">How extra you are with everything ever</div>
+            <div class="reason-box">Your openness with yourself and trying different things</div>
+            <div class="reason-box">Your ability to have fun anywhere</div>
+            <div class="reason-box">The little freckles you have scattered around your chest and back</div>
+            <div class="reason-box">Your honesty. I like knowing I can ask you anything</div>
+            <div class="reason-box">How smart you are</div>
+            <div class="reason-box">How hard you push yourself (even if I think you should take it easy sometimes)</div>
+            <div class="reason-box">How you talk. It's unique just like you.</div>
+        </div>
+
+        <div class="container">
+            <h1>Will You Be My Valentine? ❤️</h1>
+            <div class="buttons">
+                <button id="yesBtn">Yes 💖</button>
+                <button id="noBtn">No 💔</button>
+            </div>
+            <div class = "polaroid-gallery">
+                <div class = "polaroid">
+                    <img src="heart.jpg" alt="Us together">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="noScreen" class="hidden">
+        <img id="growingDanielLarson" src="danielLarson.jpg" alt="Sad Image">
+        <div class="joking-box">
+            <h2>You're joking right?</h2>
+            <div class="sadButtons">
+                <div class="buttons">
+                    <button id="yesJBtn" class="joking-button">Yes :D</button>
+                    <button id="noJBtn" class="joking-button">NO : |</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

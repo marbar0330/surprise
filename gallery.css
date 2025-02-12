@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'SourGummy';
+    src: url('SourGummy-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Ensure the gallery starts from the top */
+body {
+    display: block;
+    height: auto;
+    overflow-y: auto;
+    background-color: #ffe4e1;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'SourGummy';
+    font-size: 2em;
+    color: #d63384;
+}
+
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-family: 'SourGummy';
+}
+
+/* Gallery container */
+.gallery-container {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: visible;
+    position: relative;
+}
+
+/* Gallery grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Gallery images */
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Back button */
+#backBtn {
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+#backBtn:hover {
+    background: #ff1493;
+}
+
+/* Lightbox effect (Fullscreen zoom-in view) */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Lightbox image (Centered & Enlarged) */
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Show lightbox when active */
+.show-lightbox {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Make gallery photos clickable */
+.gallery-grid img {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
