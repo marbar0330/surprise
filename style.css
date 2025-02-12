@@ -47,7 +47,6 @@
     visibility: visible !important;
 }
 
-/* Envelope Wiggle Effect */
 .envelope {
     width: 150px;
     cursor: pointer;
@@ -86,9 +85,9 @@
 
 .gallery-button {
     position: absolute;
-    right: 20px; /* Pushes it to the far right */
+    right: 20px;
     top: 50%;
-    transform: translateY(-75%); /* Center vertically */
+    transform: translateY(-75%);
     font-size: 1em;
     padding: 8px 15px;
     border: none;
@@ -107,7 +106,7 @@
 }
 
 #noJBtn {
-    transition: left 0.3s ease, top 0.3s ease; /* Smooth movement */
+    transition: left 0.3s ease, top 0.3s ease;
 }
 
 body {
@@ -235,13 +234,13 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto; /* Adjust spacing */
+    margin: 10px auto;
     flex-shrink: 0;
 }
 
 .photo-overlay {
     position: relative;
-    background: white; /* White rectangular background */
+    background: white;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -249,7 +248,7 @@ button {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 180px; /* Set width of the rectangle */
+    width: 180px;
     max-width: 100%;
 }
 
@@ -259,7 +258,6 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 40px auto; */
     border-radius: 10px;
     margin-top: 180px;
     margin-bottom: 20px;
@@ -290,12 +288,12 @@ button {
 
 .reasons-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Always 5 columns */
-    grid-template-rows: repeat(2, auto); /* Force max 2 rows */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, auto); 
     gap: 15px;
     justify-content: center;
     padding: 20px;
-    max-width: 900px; /* Controls the overall width */
+    max-width: 900px; 
     margin: 0 auto;
     margin-bottom: 15px;
 }
@@ -309,7 +307,7 @@ button {
     font-size: 18px;
     font-weight: bold;
     color: #d63384;
-    height: 120px; /* Keeps all boxes the same height */
+    height: 120px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -337,7 +335,6 @@ button {
     width: 25px;
     height: auto;
     opacity: 0;
-    /* transform: scale(0.2); */
     transition: transform 3s ease-in-out, opacity 1s ease-in-out;
 }
 
@@ -349,7 +346,6 @@ button {
 .grow-image {
     opacity: 1 !important;
     transform: scale(12);
-    /* transition: transform 3s ease-in-out, opacity 1s ease-in-out 0.2s; */
 }
 
 .pink-screen-container {
@@ -380,13 +376,13 @@ button {
 
 /* Popup background (hidden by default) */
 .popup {
-    display: none; /* Hidden initially */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -424,7 +420,6 @@ button {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Make title look clickable */
 .reasons-title {
     cursor: pointer;
     transition: color 0.3s ease-in-out;
@@ -454,9 +449,9 @@ button {
 }
 
 .reasons-container {
-    position: relative; /* Makes sure Smiskis are positioned relative to this */
+    position: relative; 
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Keeps the 5-column layout */
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 15px;
     justify-content: center;
@@ -466,21 +461,20 @@ button {
 }
 
 
-/* Smiski Figures Positioned on Top of the Reason Boxes */
 .smiski-container {
     position: absolute;
-    top: -100px; /* Moves Smiskis up to sit on the boxes */
+    top: -100px;
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Spaces them evenly */
-    pointer-events: none; /* Ensures they don’t interfere with clicks */
+    justify-content: space-between;
+    pointer-events: none;
 }
 
 
 /* Individual Smiski Figures */
 .smiski-container img {
-    width: 120px; /* Uniform sizing */
+    width: 120px;
     height: auto;
     position: relative;
 }
@@ -505,10 +499,10 @@ button {
 
 #smiskiRose {
     position: absolute;
-    left: 48%; /* Move closer to the center */
-    top: 15px; /* Fine-tune vertical positioning */
-    transform: translateX(-26vw); /* Center and slightly tilt */
-    width: 140px; /* Make slightly larger to match */
+    left: 48%;
+    top: 15px; 
+    transform: translateX(-26vw);
+    width: 140px;
 }
 
 

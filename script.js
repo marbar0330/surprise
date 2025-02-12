@@ -54,8 +54,8 @@ function showPinkScreen() {
                     setTimeout(() => {
                         text3.classList.add("fade-out");
                         setTimeout(() => {
-                            window.location.href = "index.html"; // Redirect to main page
-                        }, 2000); // Wait after last fade-out before redirect
+                            window.location.href = "index.html";
+                        }, 2000); 
                     }, 2000);
                 }, 2000);
             }, 2000);
@@ -68,18 +68,18 @@ function showPinkScreen() {
 yesBtn.addEventListener("click", showPinkScreen);
 yesJBtn.addEventListener("click", showPinkScreen);
 
-// Function to transition from white intro screen to pink main screen
+
 envelope.addEventListener("click", function() {
-    document.body.style.backgroundColor = "#ffe4e1"; // Change entire page to pink
-    introScreen.style.opacity = "0"; // Fade out effect
+    document.body.style.backgroundColor = "#ffe4e1";
+    introScreen.style.opacity = "0";
     setTimeout(() => {
-        introScreen.style.display = "none"; // Hide the white screen
-        mainContent.classList.add("show-content"); // Show the main content
+        introScreen.style.display = "none";
+        mainContent.classList.add("show-content");
 
         if (audio) {
             audio.play().catch(error => console.log("Autoplay blocked: ", error));
         }
-    }, 1000); // Matches CSS transition time
+    }, 1000);
 });
 
 noButton.addEventListener("click", function(){
@@ -102,15 +102,13 @@ noButton.addEventListener("click", function(){
 });
 
 noJBtn.addEventListener("mouseenter", function () {
-    // Get random position within the window
     const maxX = window.innerWidth - noJBtn.clientWidth - 50;
     const maxY = window.innerHeight - noJBtn.clientHeight - 50;
 
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
 
-    // Apply the new position
-    noJBtn.style.position = "absolute"; // Ensure it moves freely
+    noJBtn.style.position = "absolute";
     noJBtn.style.left = `${randomX}px`;
     noJBtn.style.top = `${randomY}px`;
 });
@@ -118,12 +116,11 @@ noJBtn.addEventListener("mouseenter", function () {
 document.getElementById("galleryBtn").addEventListener("click", function() {
     const audio = document.getElementById("backgroundMusic");
 
-    // Save current time in sessionStorage
     sessionStorage.setItem("audioTime", audio.currentTime);
-    sessionStorage.setItem("isPlaying", !audio.paused); // Check if it was playing
+    sessionStorage.setItem("isPlaying", !audio.paused); 
     sessionStorage.setItem("skipEnvelope", "true");
 
-    window.location.href = "gallery.html"; // Change to your actual gallery page
+    window.location.href = "gallery.html";
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -131,64 +128,54 @@ document.addEventListener("DOMContentLoaded", function() {
     const popup = document.getElementById("popupModal");
     const closeBtn = document.querySelector(".close-btn");
 
-    // Background music and session storage
     const audio = document.getElementById("backgroundMusic");
     const savedTime = sessionStorage.getItem("audioTime");
-    const wasPlaying = sessionStorage.getItem("isPlaying") === "true"; // Convert to boolean
-    const skipEnvelope = sessionStorage.getItem("skipEnvelope") === "true"; // Convert to boolean
+    const wasPlaying = sessionStorage.getItem("isPlaying") === "true";
+    const skipEnvelope = sessionStorage.getItem("skipEnvelope") === "true"; 
 
     const record = document.getElementById("record");
 
-    // Function to start spinning when song plays
     audio.addEventListener("play", function() {
         record.classList.add("spinning");
     });
 
-    // Function to stop spinning when song ends or pauses
     audio.addEventListener("pause", function() {
         record.classList.remove("spinning");
     });
 
     audio.addEventListener("ended", function() {
-        record.classList.remove("spinning"); // Stop spinning when song ends
+        record.classList.remove("spinning");
     });
 
-    // Restart song & spinning when clicking the record
     record.addEventListener("click", function() {
-        audio.currentTime = 0; // Restart song from beginning
-        audio.play(); // Play the song
+        audio.currentTime = 0;
+        audio.play();
     });
 
-    // ✅ Skip the envelope screen if returning from the gallery
     if (skipEnvelope) {
-        document.getElementById("intro-screen").style.display = "none"; // Hide envelope screen
-        document.getElementById("main-content").classList.add("show-content"); // Show main page
-        document.body.style.backgroundColor = "#ffe4e1"; // Ensure background stays pink
+        document.getElementById("intro-screen").style.display = "none"; 
+        document.getElementById("main-content").classList.add("show-content");
+        document.body.style.backgroundColor = "#ffe4e1"; 
     }
 
-    // ✅ Resume music if returning from gallery
     if (savedTime !== null) {
-        audio.currentTime = parseFloat(savedTime); // Restore audio time
+        audio.currentTime = parseFloat(savedTime);
     }
     if (wasPlaying) {
-        audio.play(); // Resume playback if it was playing before
+        audio.play();
     }
 
-    // ✅ Remove `skipEnvelope` state so it applies only once
     sessionStorage.removeItem("skipEnvelope");
 
     if (reasonsTitle && popup && closeBtn) {
-        // Show popup when title is clicked
         reasonsTitle.addEventListener("click", function() {
             popup.style.display = "flex";
         });
 
-        // Close popup when the close button is clicked
         closeBtn.addEventListener("click", function() {
             popup.style.display = "none";
         });
 
-        // Close popup when clicking outside of it
         popup.addEventListener("click", function(event) {
             if (event.target === popup) {
                 popup.style.display = "none";
@@ -199,5 +186,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("load", function() {
     const record = document.getElementById("record");
-    record.style.opacity = "1"; // Show the record with a smooth fade-in
+    record.style.opacity = "1";
 });

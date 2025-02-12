@@ -14,14 +14,14 @@
         document.addEventListener("DOMContentLoaded", function() {
             const audio = document.getElementById("backgroundMusic");
             const savedTime = sessionStorage.getItem("audioTime");
-            const wasPlaying = sessionStorage.getItem("isPlaying") === "true"; // Convert to boolean
+            const wasPlaying = sessionStorage.getItem("isPlaying") === "true"; 
 
             if (savedTime !== null) {
-                audio.currentTime = parseFloat(savedTime); // Restore time
+                audio.currentTime = parseFloat(savedTime); 
             }
 
             if (wasPlaying) {
-                audio.play(); // Resume playing if it was playing before
+                audio.play();
             }
 
             document.getElementById("backBtn").addEventListener("click", function() {
@@ -29,7 +29,7 @@
                 sessionStorage.setItem("isPlaying", !audio.paused);
                 sessionStorage.setItem("skipEnvelope", "true");
 
-                window.location.href = "index.html"; // Return to main page
+                window.location.href = "index.html";
              });
         });
     </script>
@@ -70,12 +70,11 @@
         document.getElementById("backBtn").addEventListener("click", function() {
             const audio = document.getElementById("backgroundMusic");
 
-            // Save audio position and playback state
             sessionStorage.setItem("audioTime", audio.currentTime);
-            sessionStorage.setItem("isPlaying", !audio.paused); // True if playing
-            sessionStorage.setItem("skipEnvelope", "true"); // Prevents envelope screen
+            sessionStorage.setItem("isPlaying", !audio.paused);
+            sessionStorage.setItem("skipEnvelope", "true"); 
 
-            window.location.href = "index.html"; // Go back to main page
+            window.location.href = "index.html"; 
         });
     </script>
 
@@ -89,22 +88,19 @@
             const lightbox = document.getElementById("lightbox");
             const lightboxImg = document.getElementById("lightbox-img");
     
-            // Click on a photo to zoom in
             galleryPhotos.forEach(photo => {
                 photo.addEventListener("click", function() {
-                    lightboxImg.src = this.src; // Set the clicked image in the lightbox
-                    lightbox.classList.add("show-lightbox"); // Show the lightbox
+                    lightboxImg.src = this.src;
+                    lightbox.classList.add("show-lightbox");
                 });
             });
     
-            // Click outside the image to close the lightbox
             lightbox.addEventListener("click", function(event) {
                 if (event.target !== lightboxImg) {
                     lightbox.classList.remove("show-lightbox");
                 }
             });
     
-            // Close lightbox with ESC key
             document.addEventListener("keydown", function(event) {
                 if (event.key === "Escape") {
                     lightbox.classList.remove("show-lightbox");
