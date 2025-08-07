@@ -13,7 +13,7 @@
 }
 
 
-/* First Screen: Just the Envelope */
+
 #intro-screen {
     position: fixed;
     display: flex;
@@ -26,7 +26,7 @@
     transition: opacity 1s ease-in-out;
 }
 
-/* Second Screen: Initially Hidden */
+
 #main-content {
     padding-top: 60px;
     opacity: 0;
@@ -41,7 +41,7 @@
     transition: opacity 1s ease-in-out, visibility 0s linear 1s;
 }
 
-/* Show main content after transition */
+
 .show-content {
     opacity: 1 !important;
     visibility: visible !important;
@@ -139,6 +139,11 @@ body {
 h1 {
     font-family: 'SourGummy';
     font-size: 2em;
+    margin: 0;
+    padding: 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1;
 }
 
 h2 {
@@ -279,23 +284,11 @@ button {
 }
 
 .reasons-title{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: #d63384;
     margin-top: 30px;
     text-align: center;
-}
-
-.reasons-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, auto); 
-    gap: 15px;
-    justify-content: center;
-    padding: 20px;
-    max-width: 900px; 
-    margin: 0 auto;
-    margin-bottom: 15px;
 }
 
 .reason-box {
@@ -374,7 +367,7 @@ button {
     opacity: 0 !important;
 }
 
-/* Popup background (hidden by default) */
+
 .popup {
     display: none; 
     position: fixed;
@@ -389,7 +382,7 @@ button {
     z-index: 1000;
 }
 
-/* Popup content box */
+
 .popup-content {
     background: white;
     padding: 20px;
@@ -400,7 +393,7 @@ button {
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Close button */
+
 .close-btn {
     position: absolute;
     top: 10px;
@@ -456,59 +449,50 @@ button {
     gap: 15px;
     justify-content: center;
     padding: 20px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-
-.smiski-container {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-}
-
-
-/* Individual Smiski Figures */
-.smiski-container img {
-    width: 120px;
+.smiski-img {
+    width: 100px;
     height: auto;
+    justify-self: center;
+    align-self: center;
+}
+
+.smiski-grid {
     position: relative;
+    display: grid;
+    gap: 15px;
+    justify-content: center;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1000px;
+    margin: 0 auto -60px auto; 
+    padding: 25px;
+    z-index: 2;
+}
+  
+.smiski-slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    padding: 15px;
+    text-align: center;
 }
 
-
-/* Adjust Smiski positioning for better alignment */
-#smiskiBalloon {
-    width: 200px;
-    margin-left: -10px;
-    top: -78px;
-    transform: translateX(46vw);
+.smiski-slot img {
+    height: 130px;
+    
+    object-fit: contain;
 }
 
-
-#smiskiHeart {
-    /* margin-top: 10px; */
-    height: 150px;
-    top: -28px;
-    transform: translateX(-13.5vw);
+.laying-smiski {
+    transform: translateY(30px);
 }
 
+.balloon-smiski {
+   transform: scale(1.2) translateY(-10px);
 
-#smiskiRose {
-    position: absolute;
-    left: 48%;
-    top: 15px; 
-    transform: translateX(-26vw);
-    width: 140px;
 }
 
-
-#smiskiCombo {
-    margin-top: -10px;
-    height: 150px;
-    top: -18px;
-    transform: translateX(-12vw);
-}
